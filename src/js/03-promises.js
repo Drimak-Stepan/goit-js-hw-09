@@ -32,10 +32,12 @@ function createPromise(position, delay) {
   const object = { position, delay };
 
   return new Promise((resolve, reject) => {
-    if (shouldResolve) {
-      resolve(object); // Fulfill
-    } else {
-      reject(object); // Reject
-    }
+    setTimeout(() => {
+      if (shouldResolve) {
+        resolve(object); // Fulfill
+      } else {
+        reject(object); // Reject
+      }
+    }, delay);
   });
 }
